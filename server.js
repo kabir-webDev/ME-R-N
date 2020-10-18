@@ -35,6 +35,18 @@ app.post("/messages/new", (req,res) => {
         }
     })
 })
+
+app.get("/messages/new/test", (req,res) => {
+    // const dbMessage = req.body;
+    Test.find((err,data)=>{
+        if(err){
+            res.status(500).send(err);
+        }else{
+            res.status(200).send(data);
+        }
+    })
+})
+
 app.post("/messages/new/test", (req,res) => {
     const testMessage = req.body;
     Test.create(testMessage, (err,data)=>{
